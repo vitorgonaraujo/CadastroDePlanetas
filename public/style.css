@@ -1,0 +1,228 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-image: url("../public/images/Galaxy-4K.gif");
+  background-size: cover; /* Para cobrir todo o espaço do corpo */
+  background-repeat: no-repeat; /* Para evitar repetição */
+  height: 100vh; /* Define a altura do corpo como 100% da altura da janela do navegador */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* Contorno do texto */
+}
+
+.required-message {
+  color: #ff0202; /* texto branco */
+  font-size: 16px;
+  margin: 15px 0px 5px;
+}
+
+.register-planet,
+.planet {
+  position: relative; /* Adiciona posição relativa para que o pseudo-elemento possa ser posicionado */
+  background-color: rgba(231, 229, 229, 0.8); /* cinza com 80% de opacidade */
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: solid 1px;
+}
+
+.register-planet::before,
+.planet::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    231,
+    229,
+    229,
+    0.5
+  ); /* Cor cinza com 50% de opacidade */
+  filter: blur(10px); /* Aplica o efeito de desfoque */
+  z-index: -1; /* Coloca o pseudo-elemento atrás dos campos */
+}
+
+.register-planet h2 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.register-planet .Info,
+.register-planet #Situation,
+.register-planet .Coordinates,
+.register-planet #Satellites,
+.planet ul {
+  margin-bottom: 10px;
+}
+
+.register-planet label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.register-planet input,
+.register-planet select,
+.planet {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s; /* transições suaves */
+}
+
+.register-planet input::placeholder {
+  color: #999;
+}
+
+.register-planet #add-planet {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  margin: 0 auto;
+}
+
+.register-planet #add-planet:hover {
+  background-color: #45a049;
+}
+
+.showPlanets {
+  display: flex;
+}
+.planet {
+  border-radius: 8px;
+  margin: 10px;
+  width: calc(33.33% - 20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.planet h3,
+.planet #Situation,
+.planet .Coordinates {
+  font-weight: bold; /* Deixa apenas o nome do planeta, situação e coordenadas em negrito */
+}
+
+.planet li {
+  margin-bottom: 5px;
+  list-style: none;
+}
+
+.planet button.edit-button {
+  background-color: #2196f3; /* Azul */
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.planet button.edit-button,
+button.delete-button {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.planet button.edit-button:hover {
+  background-color: #0b7dda; /* Azul mais escuro ao passar o mouse */
+}
+
+.planet button.delete-button {
+  background-color: #f44336; /* Vermelho */
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.planet button.delete-button:hover {
+  background-color: #d32f2f; /* Vermelho mais escuro ao passar o mouse */
+}
+
+.edit-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #e7e5e5; /* branco */
+  border: solid 1px #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.edit-popup h2 {
+  margin-bottom: 20px;
+}
+
+.edit-popup label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.edit-popup input,
+.edit-popup select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  margin-bottom: 10px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.edit-popup input::placeholder {
+  color: #999;
+}
+
+.edit-popup button {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+}
+
+.edit-popup button:hover {
+  background-color: #45a049;
+}
+
+.edit-popup #cancel-edit {
+  background-color: #f44336; /* Vermelho */
+}
+
+.edit-popup #cancel-edit:hover {
+  background-color: #d32f2f; /* Vermelho mais escuro ao passar o mouse */
+}
