@@ -70,9 +70,7 @@ function showPlanets() {
     });
 
     // Adiciona os elementos à estrutura da página
-    planetElement.appendChild(planetList);
-    planetElement.appendChild(editButton);
-    planetElement.appendChild(deleteButton);
+    planetElement.append(planetList, editButton, deleteButton);
 
     showPlanetsSection.appendChild(planetElement);
   });
@@ -115,8 +113,7 @@ function showEditPopup(planet: Planet) {
     }
     situationSelect.appendChild(optionElement);
   });
-  editPopup.appendChild(situationLabel);
-  editPopup.appendChild(situationSelect);
+  editPopup.append(situationLabel, situationSelect);
 
   // Campos de edição de coordenadas
   const coordinatesDiv = document.createElement("div");
